@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patrick C. Wilson | Student-Athlete, Builder & Coach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0f14;
+      --surface: #141922;
+      --surface-elevated: #1b222e;
+      --border: #232c3d;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --accent-warm: #f59e0b;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --container: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(12, 15, 20, 0.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 68px;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      list-style: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+      padding: 0.35rem 0.6rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .btn-nav {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      color: var(--text) !important;
+      padding: 0.45rem 0.9rem !important;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4.5rem 0 3.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .avatar-wrap {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      padding: 4px;
+      background: linear-gradient(145deg, var(--accent), transparent);
+      box-shadow: 0 12px 36px var(--accent-glow);
+    }
+
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-position: center 20%;
+    }
+
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--accent);
+    }
+
+    .badge.gold {
+      color: var(--accent-warm);
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-summary {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.18rem;
+      color: #cbd5e1;
+      max-width: 680px;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-ribbon {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-md);
+      margin-top: 1.5rem;
+    }
+
+    .stat-item h4 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .stat-item p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Section Global */
+    section {
+      padding: 4.5rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-header {
+      margin-bottom: 2.25rem;
+    }
+
+    .section-tag {
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: inline-block;
+      margin-bottom: 0.35rem;
+    }
+
+    .section-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 650px;
+      margin-top: 0.35rem;
+    }
+
+    /* Cards & Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #3b485d;
+      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-img-wrap {
+      aspect-ratio: 4 / 3;
+      width: 100%;
+      background: #111;
+      overflow: hidden;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover .card-img-wrap img {
+      transform: scale(1.03);
+    }
+
+    .card-body {
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-meta {
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .card-text {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .spec-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .spec-tag {
+      background: var(--surface-elevated);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.72rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-sm);
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+
+    /* Outdoor / Passions Feature Blocks */
+    .narrative-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.25rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .narrative-content h3 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .narrative-content p {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .quote-box {
+      border-left: 2px solid var(--accent);
+      padding-left: 1rem;
+      margin: 1.25rem 0;
+      font-style: italic;
+      color: #cbd5e1;
+      font-family: 'Source Serif 4', Georgia, serif;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .gallery-frame {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 1;
+      background: #0f131a;
+      border: 1px solid var(--border);
+    }
+
+    .gallery-frame.full-width {
+      grid-column: span 2;
+      aspect-ratio: 16 / 9;
+    }
+
+    .gallery-frame img {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Experience & Leadership Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .timeline-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.4rem;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 1.5rem;
+    }
+
+    .timeline-time {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .timeline-role {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.15rem;
+    }
+
+    .timeline-org {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      font-weight: 600;
+      margin-bottom: 0.65rem;
+    }
+
+    .timeline-bullets {
+      list-style-position: outside;
+      margin-left: 1rem;
+      color: #cbd5e1;
+      font-size: 0.9rem;
+    }
+
+    .timeline-bullets li {
+      margin-bottom: 0.35rem;
+    }
+
+    /* Contact Footer */
+    footer {
+      background: #080a0e;
+      border-top: 1px solid var(--border);
+      padding: 4rem 0 2.5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.65rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      width: fit-content;
+      transition: border-color 0.2s;
+    }
+
+    .contact-pill:hover {
+      border-color: var(--accent);
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: #64748b;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.5rem;
+      }
+      .avatar-wrap {
+        margin: 0 auto;
+      }
+      .badge-bar {
+        justify-content: center;
+      }
+      .stat-ribbon {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .narrative-card {
+        grid-template-columns: 1fr !important;
+      }
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="brand">PATRICK WILSON<span>.</span></a>
+        <ul class="nav-links">
+          <li><a href="#projects">Woodworking</a></li>
+          <li><a href="#skiing">Skiing</a></li>
+          <li><a href="#fishing">Fishing</a></li>
+          <li><a href="#athletics">Track & Field</a></li>
+          <li><a href="#leadership">Experience</a></li>
+          <li><a href="mailto:20patrickwilson@gmail.com" class="btn-nav">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Summary -->
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="avatar-wrap">
+            <img src="Patrick_Wilson_Headshot.jpg" alt="Patrick C. Wilson" />
+          </div>
+          <div>
+            <div class="badge-bar">
+              <span class="badge">Old Tappan, NJ</span>
+              <span class="badge">Class of 2027</span>
+              <span class="badge gold">GPA: 4.09</span>
+              <span class="badge">Sports Medicine & Science</span>
+            </div>
+            <h1 class="hero-title">Student-Athlete, Coach & Woodworker</h1>
+            <p class="hero-summary">
+              Hi, I’m Patrick. I attend the Bergen County Institute for Science and Technology at Old Tappan. When I’m not in class, you can usually find me competing in varsity track, coaching youth diving, out on the ski slopes, or working on builds in the shop.
+            </p>
+            <div class="stat-ribbon">
+              <div class="stat-item">
+                <h4>4.09</h4>
+                <p>High School GPA</p>
+              </div>
+              <div class="stat-item">
+                <h4>2x County</h4>
+                <p>Team Championships</p>
+              </div>
+              <div class="stat-item">
+                <h4>15 Kids</h4>
+                <p>Youth Dive Coach</p>
+              </div>
+              <div class="stat-item">
+                <h4>2026</h4>
+                <p>Andy O'Grady Award</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section: Custom Builds & Woodworking -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Hands-On Projects</span>
+          <h2 class="section-title">Woodworking & Builds</h2>
+          <p class="section-desc">
+            I love building things with my hands. Woodworking taught me how to measure carefully, stay patient, and fix mistakes when things don't go as planned.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <!-- Build 1: Cutting Board -->
+          <div class="card">
+            <div class="card-img-wrap">
+              <img src="cutting_board.jpg" alt="Hardwood Cutting Board" />
+            </div>
+            <div class="card-body">
+              <div class="card-meta">Cutting Board</div>
+              <h3 class="card-title">Striped Hardwood Cutting Board</h3>
+              <p class="card-text">
+                Made using maple, dark walnut, and a purpleheart stripe right down the middle. I glued and clamped the boards, planed the surface flat, routed out a carry handle, and rounded the edges. Sealed it with mineral oil and beeswax so it's completely safe for food prep.
+              </p>
+              <div class="spec-tags">
+                <span class="spec-tag">Maple & Walnut</span>
+                <span class="spec-tag">Purpleheart</span>
+                <span class="spec-tag">Food-Safe Finish</span>
+                <span class="spec-tag">Routed Handle</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Build 2: Display Shelf -->
+          <div class="card">
+            <div class="card-img-wrap">
+              <img src="display_shelf.jpg" alt="Interlocking Display Shelf" />
+            </div>
+            <div class="card-body">
+              <div class="card-meta">Room Decor</div>
+              <h3 class="card-title">Interlocking Wall Shelf</h3>
+              <p class="card-text">
+                A custom multi-box shelf I built for my bedroom wall. I cut and joined solid oak pieces into overlapping boxes to create different sized cubbies for cologne, books, and framed photos, then stained and sealed it.
+              </p>
+              <div class="spec-tags">
+                <span class="spec-tag">Solid Oak</span>
+                <span class="spec-tag">Stained & Sealed</span>
+                <span class="spec-tag">Wall Mount</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Build 3: Garden / Patio Bench -->
+          <div class="card">
+            <div class="card-img-wrap">
+              <img src="outdoor_bench.jpg" alt="Heavy Duty Outdoor Bench" />
+            </div>
+            <div class="card-body">
+              <div class="card-meta">Outdoor Furniture</div>
+              <h3 class="card-title">Wooden Patio Bench</h3>
+              <p class="card-text">
+                Built this bench from scratch using treated lumber so it holds up outside. I angled the back slats slightly so it's actually comfortable to sit on, added wide armrests, and put everything together with exterior-grade screws.
+              </p>
+              <div class="spec-tags">
+                <span class="spec-tag">Treated Wood</span>
+                <span class="spec-tag">Angled Backrest</span>
+                <span class="spec-tag">Weatherproof</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Build 4: Sturdy Work Table -->
+          <div class="card">
+            <div class="card-img-wrap">
+              <img src="workbench.jpg" alt="Framed Heavy Duty Work Table" />
+            </div>
+            <div class="card-body">
+              <div class="card-meta">Shop Project</div>
+              <h3 class="card-title">Heavy Duty Work Table</h3>
+              <p class="card-text">
+                Framed with sturdy 2x4s and diagonal cross-bracing to keep it rock solid. I used a thick plywood top so I can use it for tool prep, yard equipment repairs, and cutting down materials without having it wobble.
+              </p>
+              <div class="spec-tags">
+                <span class="spec-tag">Cross-Braced</span>
+                <span class="spec-tag">Plywood Top</span>
+                <span class="spec-tag">High-Load</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skiing Section -->
+    <section id="skiing">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Winter Trips</span>
+          <h2 class="section-title">Downhill Skiing</h2>
+          <p class="section-desc">
+            Skiing has been one of my favorite hobbies for years. It's fast, challenging, and one of the best ways to get outside during winter.
+          </p>
+        </div>
+
+        <div class="narrative-card">
+          <div class="narrative-content">
+            <h3>On the Mountain</h3>
+            <p>
+              Every winter, hitting the mountains up north with friends and family is something I look forward to. Whether it’s navigating icy East Coast mornings or finding lines through the trees, it requires complete focus.
+            </p>
+            <div class="quote-box">
+              "Skiing forces you to react on the fly. You pick your line down the trail, stay over your edges, and adapt to whatever the snow is doing."
+            </div>
+            <p>
+              A lot of the athleticism in skiing—staying balanced, using leg drive, and trusting your instincts—carries right over to the track when spring rolls around.
+            </p>
+          </div>
+          <div class="gallery-grid">
+            <div class="gallery-frame full-width">
+              <img src="ski_summit_group.jpg" alt="Patrick Wilson and ski group at the summit" />
+            </div>
+            <div class="gallery-frame">
+              <img src="ski_trio.jpg" alt="Patrick skiing with friends" />
+            </div>
+            <div class="gallery-frame">
+              <img src="ski_run.jpg" alt="Carving down a mountain trail" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fishing Section -->
+    <section id="fishing">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Outdoors</span>
+          <h2 class="section-title">Freshwater Fishing</h2>
+          <p class="section-desc">
+            Early mornings on the lake or walking the riverbanks around Bergen County. It's where I go when I need to slow down and recharge.
+          </p>
+        </div>
+
+        <div class="narrative-card">
+          <div class="gallery-grid">
+            <div class="gallery-frame">
+              <img src="fishing_bass.jpg" alt="Patrick Wilson holding a caught largemouth bass" />
+            </div>
+            <div class="gallery-frame">
+              <img src="fishing_calm_river.jpg" alt="Casting line in calm water" />
+            </div>
+          </div>
+          <div class="narrative-content">
+            <h3>Patience by the Water</h3>
+            <p>
+              Fishing is mostly about paying attention to details: figuring out where fish are holding under logs or weeds, reading the current, and trying different lures until something bites.
+            </p>
+            <div class="quote-box">
+              "Some mornings you catch a big bass, and other mornings you don't get a single hit. Either way, you learn to just enjoy being out in nature."
+            </div>
+            <p>
+              Spending so much time outdoors is also why I stay involved with cleanups along the <strong>Northern Valley Greenway</strong>. If you use local trails and waterways, you should help keep them clean.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Track & Field Section -->
+    <section id="athletics">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Varsity Track & Field</span>
+          <h2 class="section-title">My Events</h2>
+          <p class="section-desc">
+            I compete year-round on both the Winter and Spring Track teams at Old Tappan, helping our team take home county and sectional titles.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-meta">Winter & Spring</div>
+              <h3 class="card-title">Pole Vault</h3>
+              <p class="card-text">
+                Definitely the most technical event I do. It’s all about sprinting at top speed, planting the pole with confidence, and staying comfortable upside down in mid-air.
+              </p>
+              <div class="spec-tags">
+                <span class="spec-tag">Varsity Event</span>
+                <span class="spec-tag">County Points</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="card-meta">Spring Season</div>
+              <h3 class="card-title">Javelin</h3>
+              <p class="card-text">
+                One of my strongest events. It takes good footwork on the cross-steps, explosive hips, and clean release mechanics. Finished top-three at multiple championship meets in 2026.
+              </p>
+              <div class="spec-tags">
+                <span class="spec-tag">Top-3 Finishes</span>
+                <span class="spec-tag">Sectional Champs</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="card-meta">Winter Season</div>
+              <h3 class="card-title">Hurdles & High Jump</h3>
+              <p class="card-text">
+                I run high hurdles and clear the bar in high jump during winter. Jumping between multiple events helped build versatility and score important team points.
+              </p>
+              <div class="spec-tags">
+                <span class="spec-tag">Scholar Athlete</span>
+                <span class="spec-tag">Multi-Event</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership & Work Experience -->
+    <section id="leadership">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Experience</span>
+          <h2 class="section-title">Coaching, Work & Volunteering</h2>
+          <p class="section-desc">
+            What I do outside of school sports and classes.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">Summers 2025 – 2026</div>
+            <div>
+              <h3 class="timeline-role">Head Dive Coach & Lifeguard</h3>
+              <div class="timeline-org">Harrington Park Swim Club | Harrington Park, NJ</div>
+              <ul class="timeline-bullets">
+                <li>Coached 15 kids (ages 6–12), teaching basic board approach, hurdle steps, entries, and building their confidence on the 1-meter board.</li>
+                <li>Received the <strong>2026 Andy O'Grady Award</strong> for dedication and persistence in coaching youth athletics.</li>
+                <li>Worked daily shifts lifeguarding and making sure pool guests stayed safe.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">12th Grade – Present</div>
+            <div>
+              <h3 class="timeline-role">Restaurant Busser</h3>
+              <div class="timeline-org">Let's Meat | Harrington Park, NJ</div>
+              <ul class="timeline-bullets">
+                <li>Bussed tables, ran food, and helped keep the floor running smoothly during busy weekend rushes.</li>
+                <li>Got a realistic look at how a fast-paced local restaurant operates behind the scenes.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">9th Grade – Present</div>
+            <div>
+              <h3 class="timeline-role">Community Service</h3>
+              <div class="timeline-org">Greenway Cleanups, Senior Center & Camp Leader</div>
+              <ul class="timeline-bullets">
+                <li><strong>Northern Valley Greenway:</strong> Regular cleanups along local roads and trails to clear trash and protect habitats.</li>
+                <li><strong>Old Tappan Senior Center:</strong> Hung out with residents playing bingo/Jeopardy, and helped them navigate their smartphones, apps, and emails.</li>
+                <li><strong>Norwood Rec Camp:</strong> Led games and sports for a group of 20 elementary and middle school campers.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer / Contact -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-title">Patrick C. Wilson</h3>
+          <p style="color: #94a3b8; max-width: 480px; font-size: 0.95rem; margin-bottom: 1.25rem;">
+            NVRHS Class of 2027 · Bergen County Institute for Science and Technology.<br>
+            Student-athlete, builder, and coach.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="mailto:20patrickwilson@gmail.com" class="contact-pill">
+            <span>✉️</span> 20patrickwilson@gmail.com
+          </a>
+          <span class="contact-pill">
+            <span>📍</span> Norwood, NJ 07648
+          </span>
+          <span class="contact-pill">
+            <span>📞</span> (201) 394-7747
+          </span>
+        </div>
+      </div>
+      <div class="copyright">
+        Patrick C. Wilson &copy; Common App Supplement Portfolio
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
